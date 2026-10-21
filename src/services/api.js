@@ -1,4 +1,4 @@
-// Заміна для статичного сайту на Vercel: віддає дані напряму з mockData.js без бекенду
+// Адаптер для статичного сайту на Vercel: віддає дані напряму з mockData.js
 import { MOCK_DATA } from '../data/mockData.js';
 
 let token = null
@@ -11,7 +11,6 @@ export function getToken() {
   return token
 }
 
-// Емуляція запитів до колекцій на основі локального об'єкта MOCK_DATA
 export async function list(collection) {
   return MOCK_DATA[collection] || []
 }
@@ -52,7 +51,6 @@ export async function first(collection) {
   return data ?? null
 }
 
-// Головний метод, який завантажує дані для початкового екрана
 export async function overview() {
   return {
     congress: MOCK_DATA.congress?.[0] || null,
@@ -65,6 +63,5 @@ export const byOrder = (rows = []) =>
   [...rows].sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
 
 export async function submitInquiry(payload) {
-  // Імітація успішної відправки форми без бекенду
   return { success: true, message: "Запит успішно зареєстровано" }
 }
