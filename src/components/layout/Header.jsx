@@ -6,8 +6,6 @@ import { useSingleton } from '../../hooks/useCollection.js'
 import { CONGRESS_SHELL, NAV_LINKS } from '../../data/siteMeta.js'
 import { formatUaRange } from '../../lib/format.js'
 
-// Тонка чорнильна смуга: ординал конгресу серіфом, моно-навігація,
-// мобільне меню з тими самими посиланнями.
 export default function Header() {
   const { data: congress } = useSingleton('congress')
   const meta = congress ?? CONGRESS_SHELL
@@ -32,7 +30,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-ink text-paper">
-      {/* Верхня волосяна смуга: дати й місто моноширинним */}
       <div className="hidden border-b border-paper/15 sm:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-2 md:px-6">
           <PlateLabel tone="inverse">{`${dateLabel} · ${meta.city}, ${meta.country}`}</PlateLabel>
@@ -65,28 +62,39 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Основна навігація" className="hidden lg:block">
-          <ul className="flex items-center divide-x divide-paper/20">
-            {NAV_LINKS.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  end={item.end}
-                  className={({ isActive }) =>
-                    cn(
-                      'legend block border-b-2 px-3.5 py-2 transition-colors duration-200',
-                      isActive
-                        ? 'border-carmine text-paper'
-                        : 'border-transparent text-paper/60 hover:border-paper/40 hover:text-paper',
-                    )
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-6 lg:flex">
+          <nav aria-label="Основна навігація">
+            <ul className="flex items-center divide-x divide-paper/20">
+              {NAV_LINKS.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    className={({ isActive }) =>
+                      cn(
+                        'legend block border-b-2 px-3.5 py-2 transition-colors duration-200',
+                        isActive
+                          ? 'border-carmine text-paper'
+                          : 'border-transparent text-paper/60 hover:border-paper/40 hover:text-paper',
+                      )
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <a
+            href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="legend border border-paper/40 px-3.5 py-2 text-paper transition-colors duration-200 hover:border-paper hover:bg-paper hover:text-ink"
+          >
+            Сертифікати
+          </a>
+        </div>
 
         <button
           type="button"
@@ -127,6 +135,20 @@ export default function Header() {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <a
+                href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-baseline gap-4 py-3.5 text-paper/75 transition-colors duration-200 hover:text-paper"
+              >
+                <span className="tnum legend text-paper/40 group-hover:text-carmine">→</span>
+                <span className="font-serif text-xl">Сертифікати</span>
+                <span aria-hidden="true" className="ml-auto font-mono text-xs text-paper/30">
+                  ↗
+                </span>
+              </a>
+            </li>
           </ul>
           <p className="mt-3 border-t border-paper/15 pt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-paper/50">
             {`${dateLabel} · ${meta.city} · ${meta.venueAddress}`}
