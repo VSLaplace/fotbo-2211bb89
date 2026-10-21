@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   VIII Конгрес НТАГЕТ — дизайн-токени (EDITORIAL · «наукова таблиця атласу»)
+   Усі значення визначені ТУТ і використовуються як Tailwind-утиліти:
+   --color-ink -> bg-ink / text-ink / border-ink
+   --font-serif -> font-serif
+   Ніколи не створюйте другий .css файл і не хардкодьте hex у JSX.
+   ========================================================================= */
+@theme {
+  /* — Чорнило й папір — */
+  --color-ink: #101a1e; /* Anatomical Ink — текст, шапка, темні секції */
+  --color-ink-soft: #57646a; /* Muted текст, підписи, друга лінія */
+  --color-paper: #f3eee4; /* Aged Paper — фон сторінки */
+  --color-plate: #fbf8f1; /* Plate White — картки, «таблиці» */
+  --color-plate-dim: #eae3d6; /* Hover-фон рядків індексу */
+
+  /* — Аксенти — */
+  --color-carmine: #9c2b21; /* Arterial Carmine — єдиний гучний акцент */
+  --color-teal: #2e5d63; /* Venous Teal — посилання, номери малюнків */
+
+  /* — Лінійка — */
+  --color-rule: #d9d0c0; /* Graphite Rule — волосяні лінії */
+
+  /* — Аліаси усталених назв токенів (щоб старі утиліти не ламались) — */
+  --color-bg: #f3eee4;
+  --color-surface: #fbf8f1;
+  --color-text: #101a1e;
+  --color-text-muted: #57646a;
+  --color-primary: #101a1e;
+  --color-secondary: #2e5d63;
+  --color-accent: #9c2b21;
+
+  /* — Типографіка (усі шрифти з кирилицею) — */
+  --font-serif: "Old Standard TT", "Times New Roman", Georgia, serif;
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, monospace;
+
+  /* — Квадратні кути: максимум 2px — */
+  --radius-plate: 2px;
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+}
+
+/* ============================================================================
+   Базовий шар — папір як фон, чорнило як текст
+   ========================================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Журнальна деталь: тонкий «набірний» шум старого паперу поверх усього */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background-color: var(--color-carmine);
+    color: var(--color-paper);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-carmine);
+    outline-offset: 2px;
+  }
+
+  /* Числа, дати, час — завжди табличні, щоб колонки не «танцювали» */
+  code,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+}
+
+/* ============================================================================
+   Утиліти мотивів
+   ========================================================================= */
+
+/* 1. Plate Frame — подвійна волосяна рамка таблиці атласу */
+@utility plate-frame {
+  border: 1px solid var(--color-rule);
+  outline: 1px solid var(--color-rule);
+  outline-offset: 5px;
+}
+
+/* Подвійна рамка для темних (ink) секцій */
+@utility plate-frame-ink {
+  border: 1px solid color-mix(in srgb, var(--color-paper) 28%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--color-paper) 28%, transparent);
+  outline-offset: 5px;
+}
+
+/* Легенда таблиці: FIG. 03 — КЛЮЧОВІ ДАТИ */
+@utility legend {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Табличні цифри */
+@utility tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Лінійка-розділювач */
+@utility hairline {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* 2. Index List — рядок індексу з лівої межею, що «оживає» на hover */
+@utility index-row {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 3. Посилання, підкреслення якого «виростає» зліва */
+@utility link-rule {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.25s ease;
+}
+
+@utility link-rule-on {
+  background-size: 100% 1px;
+}
+
+/* Поява при скролі (керується через IntersectionObserver) */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Горизонтальні перемикачі днів без видимого скролбару */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
