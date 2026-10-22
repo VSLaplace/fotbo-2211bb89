@@ -16,7 +16,7 @@ export default function App() {
       {/* Шапка сайту */}
       <header style={{ 
         display: 'flex', 
-        justify: 'space-between', 
+        justifyContent: 'space-between', 
         alignItems: 'center', 
         borderBottom: '1px solid #1a2332', 
         paddingBottom: '20px', 
@@ -73,7 +73,7 @@ export default function App() {
         </nav>
       </header>
 
-      {/* Головна сторінка (Макет із зображення) */}
+      {/* Головна сторінка */}
       {currentPage === 'home' && (
         <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px 0' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
@@ -87,7 +87,7 @@ export default function App() {
 
               <h1 style={{ 
                 fontFamily: 'Georgia, serif', 
-                fontSize: '44px', 
+                fontSize: '40px', 
                 fontWeight: '400', 
                 lineHeight: '1.25', 
                 color: '#eceef2', 
@@ -107,8 +107,7 @@ export default function App() {
             <div style={{ 
               border: '1px solid #1e293b', 
               padding: '16px', 
-              backgroundColor: '#0f172a05', 
-              outline: '1px solid #0f172a' 
+              backgroundColor: '#0f172a'
             }}>
               <div style={{ border: '1px solid #1e2e42', padding: '10px' }}>
                 <img 
