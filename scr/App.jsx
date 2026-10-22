@@ -41,19 +41,25 @@ export default function App() {
           >
             Головна
           </button>
-          <button 
-            onClick={() => setCurrentPage('photo')} 
+          
+          {/* Кнопка Фото веде на новий Google Диск */}
+          <a 
+            href="https://drive.google.com/drive/folders/1noFbs7oJRD5eE6SiEApkeAFIFgxHY5aX?usp=drive_link" 
+            target="_blank" 
+            rel="noreferrer" 
             style={{ 
               background: 'none', 
               border: 'none', 
-              color: currentPage === 'photo' ? '#ffffff' : '#6b7280', 
+              color: '#6b7280', 
               cursor: 'pointer', 
               fontSize: '15px', 
-              letterSpacing: '0.5px' 
+              letterSpacing: '0.5px',
+              textDecoration: 'none'
             }}
           >
-            Фото
-          </button>
+            Фото ↗
+          </a>
+
           <a 
             href="https://drive.google.com/drive/folders/1CN5B5Vmqiwe_BmaMUEbf_OJqZ7tc0blW?usp=drive_link" 
             target="_blank" 
@@ -100,6 +106,11 @@ export default function App() {
               <div style={{ marginTop: '40px' }}>
                 <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#4b5563', textTransform: 'uppercase' }}>ФОРМАТ КОНГРЕСУ</span>
                 <p style={{ margin: '5px 0 0 0', color: '#9ca3af', fontSize: '15px' }}>14–17 жовтня 2026 року · Львів, Україна</p>
+                
+                {/* Напис під датою проведення */}
+                <p style={{ margin: '12px 0 0 0', color: '#6b7280', fontSize: '14px', fontStyle: 'italic' }}>
+                  Дякую за відвідування
+                </p>
               </div>
             </div>
 
@@ -123,8 +134,10 @@ export default function App() {
                 </p>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1e293b', paddingTop: '10px', marginTop: '10px' }}>
-                  <button 
-                    onClick={() => setCurrentPage('photo')} 
+                  <a 
+                    href="https://drive.google.com/drive/folders/1noFbs7oJRD5eE6SiEApkeAFIFgxHY5aX?usp=drive_link" 
+                    target="_blank" 
+                    rel="noreferrer"
                     style={{ 
                       background: 'none', 
                       border: 'none', 
@@ -133,32 +146,17 @@ export default function App() {
                       fontFamily: 'monospace', 
                       fontSize: '12px', 
                       padding: 0,
-                      letterSpacing: '1px' 
+                      letterSpacing: '1px',
+                      textDecoration: 'none'
                     }}
                   >
                     ПЛАКАТ У ПОВНОМУ РОЗМІРІ ↗
-                  </button>
+                  </a>
                   <span style={{ color: '#4b5563' }}>ОФІЦІЙНІ МАТЕРІАЛИ ОРГКОМІТЕТУ · JPG 1600×1066</span>
                 </div>
               </div>
             </div>
 
-          </div>
-        </main>
-      )}
-
-      {/* Сторінка з фото у повному розмірі */}
-      {currentPage === 'photo' && (
-        <main style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center', padding: '20px 0' }}>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontWeight: 'normal', fontSize: '28px', marginBottom: '30px' }}>
-            Офіційний плакат конгресу
-          </h2>
-          <div style={{ border: '1px solid #1e293b', padding: '15px', backgroundColor: '#0f172a' }}>
-            <img 
-              src="/uploads/photo_2026-10-14_20-27-25-fdb3c7cc.jpg" 
-              alt="Офіційний плакат VIII Конгресу НТАГЕТ" 
-              style={{ width: '100%', height: 'auto', display: 'block' }} 
-            />
           </div>
         </main>
       )}
