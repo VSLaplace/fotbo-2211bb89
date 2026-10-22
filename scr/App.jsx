@@ -42,7 +42,7 @@ export default function App() {
             Головна
           </button>
           
-          {/* Кнопка Фото веде на новий Google Диск */}
+          {/* Кнопка Фото веде на Google Диск */}
           <a 
             href="https://drive.google.com/drive/folders/1noFbs7oJRD5eE6SiEApkeAFIFgxHY5aX?usp=drive_link" 
             target="_blank" 
@@ -123,14 +123,14 @@ export default function App() {
               <div style={{ border: '1px solid #1e2e42', padding: '10px' }}>
                 <img 
                   src="/uploads/photo_2026-10-14_20-27-25-fdb3c7cc.jpg" 
-                  alt="Офіційний плакат VIII Конгресу НТАГЕТ" 
+                  alt="Офіційний плакат VIII Конгресу НТ АГЕТ" 
                   style={{ width: '100%', height: 'auto', display: 'block' }} 
                 />
               </div>
 
               <div style={{ marginTop: '20px', fontFamily: 'monospace', fontSize: '12px', color: '#6b7280' }}>
                 <p style={{ margin: '0 0 10px 0', letterSpacing: '1px', color: '#9ca3af' }}>
-                  FIG. 01 — ОФІЦІЙНИЙ ПЛАКАТ VIII КОНГРЕСУ НТАГЕТ УКРАЇНИ
+                  FIG. 01 — ОФІЦІЙНИЙ ПЛАКАТ VIII КОНГРЕСУ НТ АГЕТ УКРАЇНИ
                 </p>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1e293b', paddingTop: '10px', marginTop: '10px' }}>
