@@ -1,97 +1,72 @@
 <!DOCTYPE html>
-<html lang="uk" class="dark">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIII Конгрес НТ АГЕТ України - 2026</title>
+    <title>VIII Конгрес НТ АГЕТ України 2026</title>
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Playfair Display (для вишуканих заголовків з засічками) та Inter (для дрібного тексту) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        bgDark: '#080a0f',
-                        bgCard: '#0f141d',
-                        accentRed: '#a82323',
-                        textMuted: '#6b7280',
-                        borderDark: '#1a202c',
-                        cardBorder: '#1e2638'
+                        brand: {
+                            bg: '#0a0d14',
+                            card: '#0e131f',
+                            accent: '#a81c1c',
+                            accentHover: '#c92424',
+                            border: '#1a2234',
+                            textMuted: '#64748b'
+                        }
                     },
                     fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #080a0f;
-            color: #d1d5db;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-        .serif-heading {
-            font-family: 'Playfair Display', Georgia, serif;
-        }
-        /* Тонка стилізація кастомних бордюрів та кнопок у дусі фото */
-        .btn-outline {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.2s ease;
-        }
-        .btn-outline:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.06);
-            color: #ffffff;
-        }
-    </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-red-900 selection:text-white">
+<body class="bg-[#0a0d14] text-slate-200 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-red-900 selection:text-white">
 
-    <!-- Top Navigation Bar -->
-    <header class="w-full border-b border-gray-800/60 bg-[#080a0f]/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between text-xs tracking-widest font-mono">
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800/80 bg-[#0a0d14]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             
-            <!-- Logo / Brand Title Left -->
-            <div class="flex items-center gap-2">
-                <span class="text-accentRed font-bold text-sm tracking-normal">VIII</span>
-                <span class="text-gray-400 uppercase tracking-widest text-[11px]">КОНГРЕС · 2026</span>
-            </div>
+            <!-- Logo / Brand Title -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="font-cinzel text-red-600 font-bold text-xl tracking-wider group-hover:text-red-500 transition-colors">VIII</span>
+                <span class="font-cinzel text-slate-300 text-xs tracking-widest uppercase">Конгрес · 2026</span>
+            </a>
 
-            <!-- Navigation Links Right -->
-            <nav class="flex items-center gap-6 text-gray-300">
-                <a href="#" class="hover:text-white transition-colors">Головна</a>
-                <a href="#" class="hover:text-white transition-colors inline-flex items-center gap-1">
-                    Фото <span class="text-[10px] opacity-70">↗</span>
-                </a>
+            <!-- Navigation Links -->
+            <nav class="flex items-center gap-6 sm:gap-8 text-sm">
+                <a href="#" class="text-slate-200 hover:text-white font-medium transition-colors">Головна</a>
                 
-                <!-- Нова кнопка "Збірник", що веде на Google Диск -->
+                <!-- Кнопка "Збірник" на Google Drive -->
                 <a href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="btn-outline px-3.5 py-1.5 rounded text-gray-200 hover:text-white inline-flex items-center gap-1.5 transition">
-                    <i class="fab fa-google-drive text-[11px] text-red-500"></i>
+                   class="text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
                     <span>Збірник</span>
-                    <span class="text-[10px] opacity-70">↗</span>
+                    <span class="text-xs text-slate-500">↗</span>
                 </a>
 
-                <!-- Кнопка Сертифікати -->
-                <a href="#" class="btn-outline px-3.5 py-1.5 rounded text-gray-200 hover:text-white transition">
+                <a href="#" class="text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition-colors">
+                    <span>Фото</span>
+                    <span class="text-xs text-slate-500">↗</span>
+                </a>
+
+                <a href="#" class="border border-slate-700/80 hover:border-slate-500 bg-slate-900/50 text-slate-200 hover:text-white px-4 py-2 rounded-lg text-xs tracking-wide font-medium transition-all">
                     Сертифікати
                 </a>
             </nav>
@@ -99,114 +74,66 @@
     </header>
 
     <!-- Main Hero Section -->
-    <main class="max-w-7xl mx-auto px-6 sm:px-10 py-12 lg:py-20 flex-grow w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+    <main class="max-w-7xl mx-auto px-6 py-12 lg:py-16 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            <!-- Left Text Content Column -->
-            <div class="lg:col-span-7 space-y-8 pt-2">
-                
-                <!-- Badge Accent Title -->
-                <div class="flex items-baseline gap-3">
-                    <span class="serif-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-accentRed tracking-tight">VIII</span>
-                    <span class="font-mono text-xs sm:text-sm text-gray-400 tracking-widest uppercase">КОНГРЕС · 2026</span>
+            <!-- Left Text Content -->
+            <div class="lg:col-span-6 space-y-8">
+                <div>
+                    <!-- Big VIII Banner -->
+                    <div class="flex items-baseline gap-3 mb-2">
+                        <span class="font-cinzel text-6xl sm:text-7xl lg:text-8xl font-extrabold text-[#a81c1c] tracking-tight leading-none">VIII</span>
+                        <span class="font-cinzel text-slate-400 tracking-widest text-sm uppercase">Конгрес · 2026</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-100 leading-tight tracking-tight mt-4">
+                        VIII Конгрес Наукового товариства анатомів, гістологів, ембріологів та топографоанатомів України
+                    </h1>
                 </div>
 
-                <!-- Main Serif Heading -->
-                <h1 class="serif-heading text-2xl sm:text-3xl lg:text-4xl text-gray-100 leading-snug font-normal max-w-2xl">
-                    VIII Конгрес Наукового товариства анатомів, гістологів, ембріологів та топографоанатомів України
-                </h1>
-
-                <!-- Details / Meta Info -->
-                <div class="space-y-2 pt-4 font-mono text-xs tracking-wider text-gray-400">
-                    <p class="uppercase text-[11px] text-gray-500">ФОРМАТ КОНГРЕСУ</p>
-                    <p class="text-gray-300">14 - 17 жовтня 2026 року · Львів, Україна</p>
+                <!-- Meta Details -->
+                <div class="pt-4 border-t border-slate-800/60">
+                    <p class="text-xs uppercase tracking-widest text-slate-500 mb-1 font-semibold">Формат конгресу</p>
+                    <p class="text-sm text-slate-300 font-medium">14–17 жовтня 2026 року · Львів, Україна</p>
+                    <p class="text-xs italic text-slate-500 mt-2">Дякую за відвідування</p>
                 </div>
-
-                <!-- Subtle Footer Text Inside Hero -->
-                <div class="pt-6 border-t border-gray-800/40">
-                    <p class="text-xs text-gray-500 italic font-serif">Дякую за відвідування</p>
-                </div>
-
             </div>
 
-            <!-- Right Poster Card Column -->
-            <div class="lg:col-span-5">
-                <div class="bg-[#0c1017] border border-[#1b2333] rounded-sm p-4 sm:p-5 shadow-2xl space-y-3">
+            <!-- Right Image Poster Card -->
+            <div class="lg:col-span-6 flex justify-center">
+                <div class="bg-[#0e131f] border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl max-w-lg w-full">
                     
-                    <!-- Inner Image Container -->
-                    <div class="relative overflow-hidden bg-black/40 border border-gray-800/60 rounded-sm">
-                        <!-- Poster Preview Image -->
-                        <img 
-                            src="https://placehold.co/1200x800/181310/d4b28c?text=VIII+КОНГРЕС+НТ+АГЕТ+УКРАЇНИ%0A14-17+жовтня+2026+р.+Львів" 
-                            alt="Офіційний плакат VIII Конгресу НТ АГЕТ України" 
-                            class="w-full h-auto object-cover opacity-95 hover:opacity-100 transition-opacity duration-300"
-                        />
+                    <!-- Poster Image -->
+                    <div class="relative overflow-hidden rounded-xl border border-slate-800/80 group">
+                        <img src="/uploads/photo_2026-10-14_20-27-25-fdb3c7cc.jpg" 
+                             alt="Офіційний плакат VIII Конгресу НТ АГЕТ України" 
+                             class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x500/0e131f/ffffff?text=Плакат+Конгресу';">
                     </div>
 
-                    <!-- Image Caption -->
-                    <div class="font-mono text-[11px] text-gray-400 uppercase tracking-widest pt-1 flex items-center justify-between">
-                        <span>FIG. 01 — ОФІЦІЙНИЙ ПЛАКАТ VIII КОНГРЕСУ НТ АГЕТ УКРАЇНИ</span>
-                    </div>
-
-                    <!-- Footer Links under Poster -->
-                    <div class="font-mono text-[10px] text-gray-500 tracking-wider flex flex-wrap justify-between items-center pt-2 border-t border-gray-800/60 gap-2">
-                        <a href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link" 
-                           target="_blank" 
-                           class="text-gray-400 hover:text-white transition flex items-center gap-1">
-                            ПЛАКАТ У ПОВНОМУ РОЗМІРІ <span class="text-[9px]">↗</span>
-                        </a>
-                        <span class="uppercase">ОФІЦІЙНІ МАТЕРІАЛИ ОРГКОМІТЕТУ · JPG 1600x1066</span>
+                    <!-- Image Captions -->
+                    <div class="mt-4 flex flex-wrap items-center justify-between text-[11px] font-mono tracking-wider text-slate-400 gap-2 uppercase">
+                        <div>
+                            <span>FIG. 01 — Офіційний плакат VIII Конгресу НТ АГЕТ України</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="/uploads/photo_2026-10-14_20-27-25-fdb3c7cc.jpg" target="_blank" class="hover:text-slate-200 transition-colors">
+                                Плакат у повному розмірі ↗
+                            </a>
+                        </div>
                     </div>
 
                 </div>
             </div>
 
-        </div>
-
-        <!-- Додаткова секція з додатковими швидкими кнопками та інформацією -->
-        <div class="mt-20 pt-10 border-t border-gray-800/40 grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
-            <div class="p-5 border border-gray-800/50 bg-[#0a0d14] rounded-sm space-y-2">
-                <div class="text-accentRed font-bold uppercase tracking-widest text-[11px]">01. Матеріали</div>
-                <h3 class="serif-heading text-lg text-gray-200">Збірник праць</h3>
-                <p class="text-gray-400 font-sans text-xs leading-relaxed">
-                    Усі тези, наукові статті та матеріали доповідей опубліковані у відкритому доступі на базі Google Drive.
-                </p>
-                <a href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link" 
-                   target="_blank" 
-                   class="inline-block pt-2 text-red-400 hover:text-red-300 transition">
-                    Відкрити папку матеріалів ↗
-                </a>
-            </div>
-
-            <div class="p-5 border border-gray-800/50 bg-[#0a0d14] rounded-sm space-y-2">
-                <div class="text-gray-500 font-bold uppercase tracking-widest text-[11px]">02. Локація</div>
-                <h3 class="serif-heading text-lg text-gray-200">м. Львів, Україна</h3>
-                <p class="text-gray-400 font-sans text-xs leading-relaxed">
-                    Заходи конгресу проходять на базі провідних наукових та медичних установ міста Львова.
-                </p>
-            </div>
-
-            <div class="p-5 border border-gray-800/50 bg-[#0a0d14] rounded-sm space-y-2">
-                <div class="text-gray-500 font-bold uppercase tracking-widest text-[11px]">03. Оргкомітет</div>
-                <h3 class="serif-heading text-lg text-gray-200">Сертифікація та участь</h3>
-                <p class="text-gray-400 font-sans text-xs leading-relaxed">
-                    Для отримання іменних сертифікатів учасників використовуйте відповідний розділ у шапці сайту.
-                </p>
-            </div>
         </div>
     </main>
 
-    <!-- Bottom Minimal Footer -->
-    <footer class="w-full border-t border-gray-800/50 bg-[#05070a] py-6 font-mono text-[11px] text-gray-500">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-wrap justify-between items-center gap-4">
-            <div>
-                © 2026 VIII Конгрес НТ АГЕТ України
-            </div>
-            <div class="flex items-center gap-4 text-gray-400">
-                <a href="https://drive.google.com/drive/folders/1HPXDza0LDMehH_bKWNvmu25eRr0Fwxbr?usp=drive_link" target="_blank" class="hover:text-white transition">Збірник (Google Drive)</a>
-                <span>·</span>
-                <a href="#" class="hover:text-white transition">Архів</a>
-            </div>
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 bg-[#080a10] py-6 text-center text-xs text-slate-600">
+        <div class="max-w-7xl mx-auto px-6">
+            <p>© 2026 VIII Конгрес НТ АГЕТ України. Всі права захищено.</p>
         </div>
     </footer>
 
